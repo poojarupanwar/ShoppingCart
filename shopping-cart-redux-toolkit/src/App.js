@@ -1,7 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
-import Product from './ShoppingCart/Products';
-
+import Products from './ShoppingCart/Products';
+import 'bootstrap/dist/css/bootstrap.min.css'
 function App() {
   return (
     <div className="App">
