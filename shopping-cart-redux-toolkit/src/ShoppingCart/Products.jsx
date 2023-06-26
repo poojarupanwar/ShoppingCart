@@ -5,9 +5,13 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-
+import { useDispatch } from "react-redux";
+import { add } from "./cartSlice";
 const Products = () => {
   const [products, setProducts] = useState([]);
+
+  const dispatch=useDispatch();
+
   useEffect(() => {
     const getProducts = async () => {
       const productRes = await axios.get("https://fakestoreapi.com/products");
@@ -15,6 +19,11 @@ const Products = () => {
     };
     getProducts();
   }, []);
+
+ const addToCart=(product)=>{
+  dispatch(add(product))
+ }
+
   return (
     <>
   
@@ -36,7 +45,7 @@ const Products = () => {
                     </Card.Text>
                   </Card.Body>
                   <Card.Footer style={{background:"white"}}>
-                  <Button variant="primary">Add To Cart</Button>
+                  <Button variant="primary" onClick={()=>addToCart(product)}>Add To Cart</Button>
                   </Card.Footer>
                 </Card>
               </Col>
