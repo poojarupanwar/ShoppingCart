@@ -1,8 +1,10 @@
 import React from "react";
 import "./ShoppingCart.css";
 import { useNavigate } from "react-router-dom";
+import {  useSelector } from "react-redux";
 const NavBarPanel = () => {
     const navigate=useNavigate()
+    const cartProduct=useSelector(state=>state.cart)
   return (
     <div className="header">
       <img
@@ -30,7 +32,7 @@ const NavBarPanel = () => {
           <span className="options_lower"> & Orders </span>
         </div>
         <div className="options">
-          <span className="options_upper" onClick={()=>{navigate('/cart')}}> 0 </span>
+          <span className="options_upper" onClick={()=>{navigate('/cart')}}> {cartProduct.length} </span>
           <span className="options_lower" onClick={()=>{navigate('/cart')}}> My Cart </span>
         </div>
       </nav>
