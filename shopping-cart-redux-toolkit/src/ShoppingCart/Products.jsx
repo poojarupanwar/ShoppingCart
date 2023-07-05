@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useDispatch } from "react-redux";
 import { add } from "./cartSlice";
+ 
 const Products = () => {
   const [products, setProducts] = useState([]);
 
